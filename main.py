@@ -29,9 +29,6 @@ if stdexample_category in ["ellipse", "circle", "fattening"]:
 
 fig = plt.figure()
 ax = utils.init_ax(plot_style, fig)
-if plot_style == "surface":
-    cs = utils.plots(X_comp, Y_comp, u_comp, stdexample_category, plot_style, ax, mode, fig)
-
 
 for i in range(2490):
     j = utils.get_j(mode)
