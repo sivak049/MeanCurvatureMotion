@@ -12,14 +12,14 @@ mesh_size = 100
 h = 1/(mesh_size-1)
 h2 = h**2
 dt = 0.5*h2
-mode = "adam_12" # adam_8; adam_12; adam_16; improv
-boundary = "Neumann" # "Neumann" or "Dirichlet" boundary condition
+mode = "improv" # adam_8; adam_12; adam_16; improv
+boundary = "Dirichlet" # "Neumann" or "Dirichlet" boundary condition
 plot_style = "surface" # "contour" or "surface"
 
 X_comp,Y_comp = utils.init_grid(mesh_size, mode)
 u_comp = 10 * X_comp**2 + 4*Y_comp**2 -1
 
-stdexample_category = "fattening" # "ellipse" for ellipse; 
+stdexample_category = "default" # "ellipse" for ellipse; 
             # "circle" for Circle (with accuracy measuring)
             # "fattening" for fattening example
             # "default" for default
@@ -35,7 +35,3 @@ for i in range(2490):
     u_comp[j:-j,j:-j] = utils.mcmPde(u_comp, mode, boundary, dt, h2)    
     if i % 25 == 0:
         cs = utils.plots(X_comp, Y_comp, u_comp, stdexample_category, plot_style, ax, mode, fig)
-
-
-
-
